@@ -7,16 +7,6 @@ import (
 	"github.com/patil-ashutosh/RegexUtility/regex/rstring"
 )
 
-// func TestCountStringOccurrenceInString(t *testing.T) {
-
-// 	str := "this is string"
-// 	subStr := "is"
-// 	res := rstring.CountStringOccurrenceInString(subStr, str)
-// 	if res != 2 {
-// 		t.Errorf("CountStringOccurrenceInString() Failed expected %v result %v", 2, res)
-// 	}
-// }
-
 func TestCountStringOccurrenceInString(t *testing.T) {
 	type test struct {
 		name               string
@@ -24,13 +14,11 @@ func TestCountStringOccurrenceInString(t *testing.T) {
 		subStr             string
 		expectedOccurrence int
 	}
-
 	tests := []test{
 		{name: "HaveOccurrence", input: "this is string", subStr: "is", expectedOccurrence: 2},
 		{name: "NoOccurrence", input: "this is string", subStr: "test", expectedOccurrence: 0},
 		{name: "NoOccurrenceEmptyString", input: "", subStr: "is", expectedOccurrence: 0},
 	}
-
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
 			occurrences := rstring.CountStringOccurrenceInString(tc.subStr, tc.input)
