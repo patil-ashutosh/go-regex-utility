@@ -1,0 +1,16 @@
+name: 'Run golangci-lint with reviewdog'
+description: 'Run golangci-lint with reviewdog on pull requests to improve code review experience.'
+author: 'patil-ashutosh (reviewdog)'
+inputs:
+  github-token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+  golangci-lint-flags:
+    description: 'golangci-lint flags.'
+    default: ''
+  tool-name:
+    description: 'Tool name to use for reviewdog reporter'
+    default: 'golangci'
+  level:
+    description: 'Report level for reviewdog [info,warning,error]'
+    default: 'error'
