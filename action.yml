@@ -6,7 +6,11 @@ inputs:
     description: 'GITHUB_TOKEN.'
     required: true
   golangci-lint-flags:
+<<<<<<< HEAD
     description: 'golangci-lint flags.'
+=======
+    description: 'golangci-lint flags.
+>>>>>>> 370d9b91af441d32db236877eb47840f7558f9d4
     default: ''
   tool-name:
     description: 'Tool name to use for reviewdog reporter'
