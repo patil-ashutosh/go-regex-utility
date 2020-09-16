@@ -1,4 +1,0 @@
-mode: set
-github.com/patil-ashutosh/RegexUtility/regex/hello.go:7.32,8.20 1 1
-github.com/patil-ashutosh/RegexUtility/regex/hello.go:11.2,11.39 1 1
-github.com/patil-ashutosh/RegexUtility/regex/hello.go:8.20,10.3 1 1
