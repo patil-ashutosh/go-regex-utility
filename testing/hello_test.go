@@ -17,9 +17,9 @@ func TestHello(t *testing.T) {
 
 func TestHelloValidArgs(t *testing.T) {
 
-	emptyResult := regex.Hello("Mike")
-	if emptyResult != "Hello Mike!" {
-		t.Errorf("Hello(\"\") Failed expected %v got %v", "Hello Dude", emptyResult)
+	result := regex.Hello("Mike")
+	if result != "Hello Mike!" {
+		t.Errorf("Hello(\"\") Failed expected %v got %v", "Hello Dude", result)
 	}
 
 }
