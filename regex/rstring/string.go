@@ -8,13 +8,12 @@ import (
 func CountStringOccurrenceInString(subString string, str string) int {
 	re := regexp.MustCompile(subString)
 	results := re.FindAllString(str, -1)
-	//fmt.Println(len(results))
 	return len(results)
 }
 
-// split a string into a slice,  Split slices s into substrings separated by the expression and
+// SplitString splits string into a slice, Split slices into substrings separated by the expression and
 // returns a slice of the substrings between those expression matches
-// strs take 2 arguments,  seperator string and string  which need to be split,
+// strs take 2 arguments,  seperator string and string  which need to be split
 // int n , is max split count
 func SplitString(n int, strs ...string) []string {
 	str := ""
@@ -32,7 +31,3 @@ func SplitString(n int, strs ...string) []string {
 	return split
 
 }
-
-// func main() {
-// 	countStringOccurrenceInString(2, "a is biy isisisis")
-// }
