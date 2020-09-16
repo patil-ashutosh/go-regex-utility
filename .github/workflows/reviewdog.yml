@@ -10,7 +10,7 @@ jobs:
       - name: golangci-lint
         uses: reviewdog/action-golangci-lint@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.linter_token }}
           golangci_lint_flags: "--enable-all --exclude-use-default=false"
 
   govet:
@@ -22,7 +22,7 @@ jobs:
       - name: govet
         uses: ./
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.linter_token }}
           golangci_lint_flags: "--disable-all -E govet ./testdata"
           tool_name: govet
 
@@ -35,7 +35,7 @@ jobs:
       - name: staticcheck
         uses: ./
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.linter_token }}
           golangci_lint_flags: "--disable-all -E staticcheck ./testdata"
           tool_name: staticcheck
 
@@ -48,7 +48,7 @@ jobs:
       - name: golint
         uses: ./
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.linter_token }}
           golangci_lint_flags: "--disable-all -E golint ./testdata"
           tool_name: golint
           level: warning
@@ -62,7 +62,7 @@ jobs:
       - name: errcheck
         uses: ./
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.linter_token }}
           golangci_lint_flags: "--disable-all -E errcheck ./testdata"
           tool_name: errcheck
           level: warning
@@ -76,7 +76,7 @@ jobs:
       - name: misspell
         uses: ./
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.linter_token }}
           golangci_lint_flags: "--disable-all -E misspell ./testdata"
           tool_name: misspell
           level: info
