@@ -15,6 +15,8 @@ coverage:
         if_not_found: success
         if_ci_failed: error
         informational: false
+        patch: no
+        changes: no
 
 parsers:
   gcov:
