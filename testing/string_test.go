@@ -1,4 +1,4 @@
-package testing
+package testing_test
 
 import (
 	"reflect"
@@ -40,11 +40,12 @@ func TestSplit(t *testing.T) {
 		n        int
 		expected []string
 	}{
-		"basic":                {input: "a,b,c", sep: ",", n: -1, expected: []string{"a", "b", "c"}},
-		"wrong sep":            {input: "a/b/c", sep: ",", n: -1, expected: []string{"a/b/c"}},
-		"no sep":               {input: "abc", sep: "/", n: -1, expected: []string{"abc"}},
-		"trailing sep":         {input: "a/b/c/", sep: "/", n: -1, expected: []string{"a", "b", "c", ""}},
-		"sep with max split 2": {input: "a.b.c.d.e", sep: "\\.", n: 2, expected: []string{"a", "b.c.d.e"}},
+		"basic":                 {input: "a,b,c", sep: ",", n: -1, expected: []string{"a", "b", "c"}},
+		"wrong sep":             {input: "a/b/c", sep: ",", n: -1, expected: []string{"a/b/c"}},
+		"no sep in string":      {input: "abc", sep: "/", n: -1, expected: []string{"abc"}},
+		"trailing sep":          {input: "a/b/c/", sep: "/", n: -1, expected: []string{"a", "b", "c", ""}},
+		"sep with max split 2":  {input: "a.b.c.d.e", sep: "\\.", n: 2, expected: []string{"a", "b.c.d.e"}},
+		"no separator in input": {input: "mango is fruit", sep: " ", n: -1, expected: []string{"mango", "is", "fruit"}},
 	}
 
 	for name, tc := range tests {
