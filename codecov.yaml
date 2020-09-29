@@ -8,9 +8,13 @@ coverage:
   range: "60...100"
 
   status:
-    project: yes
-    patch: no
-    changes: no
+    project: # settings affecting project coverage
+      default:
+        target: auto # auto % coverage target
+        threshold: 15%  # allow for 15% reduction of coverage without failing
+        if_not_found: success
+        if_ci_failed: error
+        informational: false
 
 parsers:
   gcov:
