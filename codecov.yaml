@@ -1,6 +1,6 @@
+
 codecov:
   require_ci_to_pass: yes
-  token: 74498573-126a-4d45-a186-31e8cc8f6ee7
 
 coverage:
   precision: 2
@@ -8,15 +8,9 @@ coverage:
   range: "60...100"
 
   status:
-    project: # settings affecting project coverage
-      default:
-        target: auto # auto % coverage target
-        threshold: 15%  # allow for 15% reduction of coverage without failing
-        if_not_found: success
-        if_ci_failed: error
-        informational: true
-        patch: no
-        changes: no
+    project: yes
+    patch: no
+    changes: no
 
 parsers:
   gcov:
