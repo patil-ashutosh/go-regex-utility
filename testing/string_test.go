@@ -14,12 +14,15 @@ func TestCountStringOccurrenceInString(t *testing.T) {
 		subStr             string
 		expectedOccurrence int
 	}
+
 	tests := []test{
 		{name: "HaveOccurrence", input: "this is string", subStr: "is", expectedOccurrence: 2},
 		{name: "NoOccurrence", input: "this is string", subStr: "test", expectedOccurrence: 0},
 		{name: "NoOccurrenceEmptyString", input: "", subStr: "is", expectedOccurrence: 0},
 	}
+
 	for _, tc := range tests {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
 			occurrences := rstring.CountStringOccurrenceInString(tc.subStr, tc.input)
 			if occurrences != tc.expectedOccurrence {
@@ -27,7 +30,6 @@ func TestCountStringOccurrenceInString(t *testing.T) {
 					tc.subStr, tc.input, tc.expectedOccurrence, occurrences)
 			}
 		})
-
 	}
 }
 
@@ -46,6 +48,8 @@ func TestSplit(t *testing.T) {
 	}
 
 	for name, tc := range tests {
+		tc := tc
+		name := name
 		t.Run(name, func(t *testing.T) {
 			result := rstring.SplitString(tc.n, tc.input, tc.sep)
 			diff := reflect.DeepEqual(tc.expected, result)

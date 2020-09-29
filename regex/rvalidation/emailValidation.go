@@ -1,3 +1,4 @@
+// Package rvalidation contains different validation source codes
 package rvalidation
 
 import "regexp"
@@ -23,10 +24,13 @@ import "regexp"
 // [a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]{1,64}    Username,
 // [a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])? Domain , First and last char can be only letter and number
 // (?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*   Top-level domain
-// pattern = "^[a-zA-Z0-9][a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]{0,62}[a-zA-Z0-9]@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+// pattern = `^[a-zA-Z0-9][a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]{0,62}[a-zA-Z0-9]@
+//		       [a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?
+//             (?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$``
 
+// ValidateEmail validates email address
+// Ex.
 func ValidateEmail(email string) bool {
-
 	userName := "[a-zA-Z0-9][a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]{0,62}[a-zA-Z0-9]"
 	domainName := "[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?"
 	topLevelDomainName := "(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*"

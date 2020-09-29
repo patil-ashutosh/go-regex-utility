@@ -1,3 +1,4 @@
+// Package rstring performs Strings Operations using regex
 package rstring
 
 import (
@@ -5,27 +6,36 @@ import (
 )
 
 // CountStringOccurrenceInString Count the number of times a particular string occurs in another string.
-func CountStringOccurrenceInString(subString string, str string) int {
+// Ex. input: "this is string", subStr: "is", expectedOccurrence: 2
+func CountStringOccurrenceInString(subString string, input string) int {
 	re := regexp.MustCompile(subString)
-	results := re.FindAllString(str, -1)
+	results := re.FindAllString(input, -1)
+
 	return len(results)
 }
 
-// SplitString splits string into a slice, Split slices into substrings separated by the expression and
-// returns a slice of the substrings between those expression matches
+// SplitString splits string into a slices based on separator(delimiter, line break, regex, etc.).
+// If separator is not provided then split string on whitespace
 // strs take 2 arguments,  separator string and string  which need to be split.
-// int n , is max split count
+// int n , is max split count (use n = -1, for max split)
+// Ex. SplitString(2, "a.b.c.d.e", "\\.")  ->  output:  []string{"a", "b.c.d.e"}
+// input: "a.b.c.d.e", sep: "\\.", n: 2, expected: []string{"a", "b.c.d.e"}
 func SplitString(n int, strs ...string) []string {
 	str := ""
 	sep := ""
+
+	const inputStringLen = 2
+
 	if len(strs) == 1 {
 		str = strs[0]
 		sep = " "
-	} else if len(strs) == 2 {
+	} else if len(strs) == inputStringLen {
 		str = strs[0]
 		sep = strs[1]
 	}
+
 	re := regexp.MustCompile(sep)
 	split := re.Split(str, n)
+
 	return split
 }

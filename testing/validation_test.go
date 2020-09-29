@@ -12,11 +12,13 @@ func TestValidatePhoneNumber(t *testing.T) {
 		number           string
 		expectedValidity bool
 	}
+
 	tests := []test{
 		{name: "numberWithCountryCode", number: "+91-9819882936", expectedValidity: true},
 	}
 
 	for _, tc := range tests {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
 			isValidNumber := rvalidation.ValidatePhoneNumber(tc.number)
 			if isValidNumber != tc.expectedValidity {
@@ -33,6 +35,7 @@ func TestValidateMd5Hash(t *testing.T) {
 		hash             string
 		expectedValidity bool
 	}
+
 	tests := []test{
 		{name: "validMd5Hash1", hash: "9a41402abc4b2a76b9719d911017c592", expectedValidity: true},
 		{name: "validMd5Hash2", hash: "9f6e6800cfae7749eb6c486619254b9c", expectedValidity: true},
@@ -45,6 +48,7 @@ func TestValidateMd5Hash(t *testing.T) {
 	}
 
 	for _, tc := range tests {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
 			isValidHash := rvalidation.ValidateMd5Hash(tc.hash)
 			if isValidHash != tc.expectedValidity {
@@ -61,11 +65,16 @@ func TestValidateEmail(t *testing.T) {
 		email            string
 		expectedValidity bool
 	}
+
 	tests := []test{
-		{name: "validEmail", email: "john@gmail.com", expectedValidity: true},
+		{name: "validEmail1", email: "john@gmail.com", expectedValidity: true},
+		{name: "validEmail2", email: "johaan@gmail.com", expectedValidity: true},
+		{name: "InvalidEmailWithSpecialCharAtStart", email: "_john@gmail.com", expectedValidity: false},
+		{name: "InvalidEmailWithSpecialCharAtEnd", email: "john_@gmail.com", expectedValidity: false},
 	}
 
 	for _, tc := range tests {
+		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
 			isValidEmail := rvalidation.ValidateEmail(tc.email)
 			if isValidEmail != tc.expectedValidity {
