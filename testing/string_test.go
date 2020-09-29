@@ -25,10 +25,6 @@ func TestCountStringOccurrenceInString(t *testing.T) {
 			if occurrences != tc.expectedOccurrence {
 				t.Errorf("CountStringOccurrenceInString(%v,%v) Failed: expected %d, actual %d",
 					tc.subStr, tc.input, tc.expectedOccurrence, occurrences)
-			} else {
-				t.Logf("CountStringOccurrenceInString(%v,%v) Success: expected %d, actual %d",
-					tc.subStr, tc.input, tc.expectedOccurrence, occurrences)
-
 			}
 		})
 
@@ -55,9 +51,6 @@ func TestSplit(t *testing.T) {
 			diff := reflect.DeepEqual(tc.expected, result)
 			if !diff {
 				t.Errorf("SplitString(%d, %v, %v) Failed: expected %v, actual %v",
-					tc.n, tc.input, tc.sep, tc.expected, result)
-			} else {
-				t.Logf("SplitString(%d, %v, %v) Success: expected %v, actual %v",
 					tc.n, tc.input, tc.sep, tc.expected, result)
 			}
 		})
