@@ -5,6 +5,6 @@ os:
 go:
   - 1.14.x
 before_install:
-  - go build -v github.com/patil-ashutosh/RegexUtility/regex
+  - go build -v ./...
 script:
   - go test -v ./...
