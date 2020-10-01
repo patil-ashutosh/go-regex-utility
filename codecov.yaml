@@ -11,7 +11,7 @@ coverage:
       default:
         # basic
         target: auto
-        threshold: 25%
+        threshold: 100%
         patch: no
         changes: no
         if_not_found: success
