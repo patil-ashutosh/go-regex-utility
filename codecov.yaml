@@ -15,7 +15,7 @@ coverage:
         patch: no
         changes: no
         if_not_found: success
-        if_ci_failed: error
+        if_ci_failed: success
         informational: true
 
 
