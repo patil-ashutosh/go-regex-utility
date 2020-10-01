@@ -14,7 +14,7 @@ coverage:
         threshold: 15%  # allow for 15% reduction of coverage without failing
         if_not_found: success
         if_ci_failed: error
-        informational: true
+        informational: false
         patch: no
         changes: no
 
