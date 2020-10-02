@@ -3,7 +3,7 @@ package testing_test
 import (
 	"testing"
 
-	"github.com/patil-ashutosh/RegexUtility/regex/rvalidation"
+	"github.com/patil-ashutosh/go-regex-utility/regex/rvalidation"
 )
 
 func TestValidatePhoneNumber(t *testing.T) {

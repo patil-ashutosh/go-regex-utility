@@ -3,9 +3,9 @@ GOBUILD=$(GOCMD) build
 GOTEST=$(GOCMD) test
 GOLANGCI = golangci-lint
 SRCPKG = regex
-SRCPKGPATH1  = github.com/patil-ashutosh/RegexUtility/regex/rvalidation
-SRCPKGPATH2	 =  github.com/patil-ashutosh/RegexUtility/regex/rstring
-TESTPKGPATH = github.com/patil-ashutosh/RegexUtility/testing
+SRCPKGPATH1  = github.com/patil-ashutosh/go-regex-utility/regex/rvalidation
+SRCPKGPATH2	 =  github.com/patil-ashutosh/go-regex-utility/regex/rstring
+TESTPKGPATH = github.com/patil-ashutosh/go-regex-utility/testing
 
 
 build:

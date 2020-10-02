@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/patil-ashutosh/RegexUtility/regex/rstring"
+	"github.com/patil-ashutosh/go-regex-utility/regex/rstring"
 )
 
 func TestCountStringOccurrenceInString(t *testing.T) {
