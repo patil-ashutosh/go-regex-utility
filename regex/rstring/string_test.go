@@ -1,6 +1,7 @@
-package testing_test
+package rstring_test
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 
@@ -24,7 +25,7 @@ func TestCountStringOccurrenceInString(t *testing.T) {
 	for _, tc := range tests {
 		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
-			occurrences := rstring.CountStringOccurrenceInString(tc.subStr, tc.input)
+			occurrences := rstring.CountStringOccurrenceInString(tc.input, tc.subStr)
 			if occurrences != tc.expectedOccurrence {
 				t.Errorf("CountStringOccurrenceInString(%v,%v) Failed: expected %d, actual %d",
 					tc.subStr, tc.input, tc.expectedOccurrence, occurrences)
@@ -33,7 +34,7 @@ func TestCountStringOccurrenceInString(t *testing.T) {
 	}
 }
 
-func TestSplit(t *testing.T) {
+func TestSplitString(t *testing.T) {
 	tests := map[string]struct {
 		input    string
 		sep      string
@@ -45,7 +46,7 @@ func TestSplit(t *testing.T) {
 		"no sep in string":      {input: "abc", sep: "/", n: -1, expected: []string{"abc"}},
 		"trailing sep":          {input: "a/b/c/", sep: "/", n: -1, expected: []string{"a", "b", "c", ""}},
 		"sep with max split 2":  {input: "a.b.c.d.e", sep: "\\.", n: 2, expected: []string{"a", "b.c.d.e"}},
-		"no separator in input": {input: "mango is fruit", sep: " ", n: -1, expected: []string{"mango", "is", "fruit"}},
+		"no separator in input": {input: "mango is fruit", sep: "\\s+", n: -1, expected: []string{"mango", "is", "fruit"}},
 	}
 
 	for name, tc := range tests {
@@ -60,4 +61,19 @@ func TestSplit(t *testing.T) {
 			}
 		})
 	}
+}
+
+func ExampleCountStringOccurrenceInString() {
+	fmt.Println(rstring.CountStringOccurrenceInString("this is string", "is"))
+	// Output: 2
+}
+
+func ExampleSplitString() {
+	fmt.Println(rstring.SplitString(-1, "a,b,c", ","))
+	// Output: [a b c]
+}
+
+func ExampleSplitString_other() {
+	fmt.Println(rstring.SplitString(-1, "mango     is     fruit"))
+	// Output: [mango is fruit]
 }
