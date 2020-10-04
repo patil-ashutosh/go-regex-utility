@@ -12,7 +12,7 @@ build:
 		$(GOBUILD) ./$(SRCPKG)/...
 
 test:
-		$(GOTEST) -v -coverprofile=coverage.txt -coverpkg=$(SRCPKGPATH1),$(SRCPKGPATH2) $(TESTPKGPATH)
+		$(GOTEST) -v ./... -coverprofile=coverage.txt
 
 golinter:
 		$(GOLANGCI) run --enable-all --exclude-use-default=false
