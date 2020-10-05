@@ -11,9 +11,11 @@ Create or find an issue you would like to implement:
 # How Can I Contribute?
 
 -   Reporting Bugs
+-   Proposing new features
 -   Suggesting Enhancements
 -   Adding Documentaion
 -   Code Contribution
+-   Reviewing Pull Requests
 
 ## Developing go-regex-utility
 
