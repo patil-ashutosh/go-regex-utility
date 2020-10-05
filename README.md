@@ -4,6 +4,7 @@
 
 
 
-[![codecov](https://codecov.io/gh/patil-ashutosh/RegexUtility/branch/master/graph/badge.svg?token=14FCNZUUGK)](https://codecov.io/gh/patil-ashutosh/RegexUtility)
+
+[![codecov](https://codecov.io/gh/patil-ashutosh/go-regex-utility/branch/master/graph/badge.svg)](https://codecov.io/gh/patil-ashutosh/go-regex-utility)
 
 
