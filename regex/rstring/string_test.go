@@ -74,12 +74,14 @@ func TestRemoveNonAlphaNumeric(t *testing.T) {
 	}
 
 	for name, tc := range tests {
+		tc := tc
 		name := name
 		t.Run(name, func(t *testing.T) {
 			result := rstring.RemoveNonAlphaNumeric(tc.input)
 			diff := reflect.DeepEqual(tc.expected, result)
 			if !diff {
-				t.Errorf("RemoveNonAlphaNumeric(%v) Failed: expected %v, got %v", tc.input, tc.expected, result)
+				t.Errorf("RemoveNonAlphaNumeric(%v) Failed: expected %v, got %v",
+					tc.input, tc.expected, result)
 			}
 		})
 	}
