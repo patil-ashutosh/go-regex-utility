@@ -41,3 +41,10 @@ func SplitString(n int, strs ...string) []string {
 
 	return split
 }
+
+// ContainsSpecialChars checks for special characters.
+func ContainsSpecialChars(s string) bool {
+	isStringAlphabetic := regexp.MustCompile(`^[a-zA-Z0-9]*$`).MatchString
+
+	return !isStringAlphabetic(s)
+}
