@@ -40,3 +40,8 @@ Create or find an issue you would like to implement:
 5.  Wait for maintainers to review the code
 
 7.  Thanks for you contribution :smile:
+
+
+
+
+##### Make sure to star the Repo(⭐)
