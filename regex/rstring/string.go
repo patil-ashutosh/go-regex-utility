@@ -44,10 +44,11 @@ func SplitString(n int, strs ...string) []string {
 }
 
 // RemoveNonAlphaNumeric will remove any non-alphanumeric character from the input string
-// And return a newly processed string
+// And return a newly processed string.
 func RemoveNonAlphaNumeric(input string) string {
 	pattern := "[^a-zA-Z0-9]+"
 	reg, err := regexp.Compile(pattern)
+
 	if err != nil {
 		log.Fatalf("Problem compiling regex pattern: %s", pattern)
 	}
