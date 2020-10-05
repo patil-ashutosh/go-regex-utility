@@ -63,6 +63,28 @@ func TestSplitString(t *testing.T) {
 	}
 }
 
+func TestRemoveNonAlphaNumeric(t *testing.T) {
+	tests := map[string]struct {
+		input    string
+		expected string
+	}{
+		"with-dashes":      {input: "enc-yclopedia-", expected: "encyclopedia"},
+		"with-underscores": {input: "encyclop_edia__", expected: "encyclopedia"},
+		"mixed-characters": {input: "encyc@lo^pe%dia-_", expected: "encyclopedia"},
+	}
+
+	for name, tc := range tests {
+		name := name
+		t.Run(name, func(t *testing.T) {
+			result := rstring.RemoveNonAlphaNumeric(tc.input)
+			diff := reflect.DeepEqual(tc.expected, result)
+			if !diff {
+				t.Errorf("RemoveNonAlphaNumeric(%v) Failed: expected %v, got %v", tc.input, tc.expected, result)
+			}
+		})
+	}
+}
+
 func ExampleCountStringOccurrenceInString() {
 	fmt.Println(rstring.CountStringOccurrenceInString("this is string", "is"))
 	// Output: 2
