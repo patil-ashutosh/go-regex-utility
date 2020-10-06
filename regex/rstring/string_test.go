@@ -104,13 +104,27 @@ func TestContainsSpecialChars(t *testing.T) {
 }
 
 func TestRemoveLineBreaks(t *testing.T) {
-	input := "One\r,\r\ntwo\u0085 three\u2028!\u2029'"
-	result := "One,two three!'"
-	output := rstring.RemoveLineBreaks(input)
-	diff := reflect.DeepEqual(result, output)
+	type test struct {
+		name   string
+		input  string
+		output string
+	}
 
-	if !diff {
-		t.Errorf("RemoveLineBreaks(%s) Failed: expected %s, actual %s",
-			input, result, output)
+	tests := []test{
+		{name: "MultipleLineBreaks", input: "One\r,\r\ntwo\u0085 three\u2028!\u2029'", output: "One,two three!'"},
+		{name: "WindowsLineBreak", input: "Win\r\n", output: "Win"},
+		{name: "MacLineBreak", input: "Mac\r", output: "Mac"},
+	}
+
+	for _, tc := range tests {
+		tc := tc
+		t.Run(tc.name, func(t *testing.T) {
+			result := rstring.RemoveLineBreaks(tc.input)
+			diff := reflect.DeepEqual(result, tc.output)
+			if !diff {
+				t.Errorf("RemoveLineBreaks(%s) Failed: expected %s, actual %s",
+					tc.input, tc.output, result)
+			}
+		})
 	}
 }
