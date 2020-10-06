@@ -8,3 +8,6 @@ before_install:
   - go build -v ./...
 script:
   - go test -v ./...
+codecov:
+  - bash <(curl -s https://codecov.io/bash)
+
