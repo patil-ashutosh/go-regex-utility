@@ -48,3 +48,12 @@ func ContainsSpecialChars(s string) bool {
 
 	return !isStringAlphabetic(s)
 }
+
+// RemoveLineBreaks removes all line breaks from a string using a regex.
+// As per https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#lineending,
+// Any Unicode linebreak sequence, is equivalent to \u000D\u000A|[\u000A\u000B\u000C\u000D\u0085\u2028\u2029] .
+func RemoveLineBreaks(s string) string {
+	re := regexp.MustCompile(`\x{000D}\x{000A}|[\x{000A}\x{000B}\x{000C}\x{000D}\x{0085}\x{2028}\x{2029}]`)
+
+	return re.ReplaceAllString(s, ``)
+}

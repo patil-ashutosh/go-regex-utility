@@ -102,3 +102,15 @@ func TestContainsSpecialChars(t *testing.T) {
 		})
 	}
 }
+
+func TestRemoveLineBreaks(t *testing.T) {
+	input := "One\r,\r\ntwo\u0085 three\u2028!\u2029'"
+	result := "One,two three!'"
+	output := rstring.RemoveLineBreaks(input)
+	diff := reflect.DeepEqual(result, output)
+
+	if !diff {
+		t.Errorf("RemoveLineBreaks(%s) Failed: expected %s, actual %s",
+			input, result, output)
+	}
+}
