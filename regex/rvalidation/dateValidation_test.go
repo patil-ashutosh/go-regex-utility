@@ -25,7 +25,7 @@ func TestValidateDate(t *testing.T) {
 		{name: "leapYear", date: "29/02/2000", expectedValidity: true},
 		{name: "notLeapYear", date: "29/02/2001", expectedValidity: false},
 		{name: "invalidMonth", date: "29/14/2001", expectedValidity: false},
-		{name: "invalidYear", date: "29/14/11", expectedValidity: true},
+		{name: "invalidYear", date: "29/14/11", expectedValidity: false},
 	}
 
 	for _, tc := range tests {
