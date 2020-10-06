@@ -5,6 +5,13 @@ os:
 go:
   - 1.14.x
 before_install:
-  - go build -v ./...
+  - make build
 script:
-  - go test -v ./...
+  - make test
+codecov:
+  - make test
+  - name: Upload Coverage report to CodeCov
+    uses: codecov/codecov-action@v1.0.0
+
+#  - bash <(curl -s https://codecov.io/bash)
+

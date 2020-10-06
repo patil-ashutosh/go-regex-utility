@@ -30,14 +30,7 @@ jobs:
 
       - name: Test code
         run: make test
-
-      
-      - name: Upload Coverage report to CodeCov
-        uses: codecov/codecov-action@v1.0.0
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
-          file: ./coverage.txt
-      
+ 
       - name: Upload report to Codacy
         shell: bash
         run: |
