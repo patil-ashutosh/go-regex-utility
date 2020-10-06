@@ -5,9 +5,8 @@ os:
 go:
   - 1.14.x
 before_install:
-  - go build -v ./...
+  - make build
 script:
-  - go test -v ./...
   - make test
 codecov:
   - make test
