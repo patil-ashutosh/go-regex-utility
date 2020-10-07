@@ -101,3 +101,28 @@ func ExampleSplitString_other() {
 	fmt.Println(rstring.SplitString(-1, "mango     is     fruit"))
 	// Output: [mango is fruit]
 }
+
+func TestContainsSpecialChars(t *testing.T) {
+	type test struct {
+		input  string
+		result bool
+	}
+
+	tests := []test{{input: "abc", result: false}}
+	chars := "!/*-+_@&$#%"
+
+	for _, v := range chars {
+		tests = append(tests, test{input: string(v), result: true})
+	}
+
+	for _, tc := range tests {
+		tc := tc
+		t.Run(tc.input, func(t *testing.T) {
+			result := rstring.ContainsSpecialChars(tc.input)
+			if result != tc.result {
+				t.Errorf("ContainsSpecialChars(%s) Failed: expected %+v, actual %+v",
+					tc.input, tc.result, result)
+			}
+		})
+	}
+}
