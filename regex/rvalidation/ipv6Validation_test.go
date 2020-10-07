@@ -13,6 +13,7 @@ func TestValidateIpv6(t *testing.T) {
 		address          string
 		expectedValidity bool
 	}
+
 	tests := []test{
 		{name: "standardFormat", address: "ABCD:EF01:2345:6789:ABCD:EF01:2345:6789", expectedValidity: true},
 		{name: "standardFormatMixed", address: "ABCD:EF01:2345:6789:ABCD:EF01:2345:6789:172.16.1.2", expectedValidity: true},
@@ -60,5 +61,5 @@ func TestValidateIpv6(t *testing.T) {
 
 func ExampleValidateIpv6() {
 	fmt.Println(rvalidation.ValidateIpv6("::1"))
-	//Output:true
+	// Output: true
 }
