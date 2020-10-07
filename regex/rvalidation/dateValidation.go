@@ -21,5 +21,6 @@ func ValidateDate(hash string) bool {
 	pattern := regularDatePattern + "|" + leapDatePattern
 
 	reg := regexp.MustCompile(pattern)
+
 	return reg.MatchString(hash)
 }
