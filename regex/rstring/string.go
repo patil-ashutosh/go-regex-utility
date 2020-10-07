@@ -54,7 +54,8 @@ func RemoveNonAlphaNumeric(input string) string {
 	}
 
 	return reg.ReplaceAllString(input, "")
-
+}
+	
 // ContainsSpecialChars checks for special characters.
 func ContainsSpecialChars(s string) bool {
 	isStringAlphabetic := regexp.MustCompile(`^[a-zA-Z0-9]*$`).MatchString
