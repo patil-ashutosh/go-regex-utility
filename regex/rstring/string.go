@@ -2,6 +2,7 @@
 package rstring
 
 import (
+	"log"
 	"regexp"
 )
 
@@ -42,6 +43,19 @@ func SplitString(n int, strs ...string) []string {
 	return split
 }
 
+// RemoveNonAlphaNumeric will remove any non-alphanumeric character from the input string
+// And return a newly processed string.
+func RemoveNonAlphaNumeric(input string) string {
+	pattern := "[^a-zA-Z0-9]"
+	reg, err := regexp.Compile(pattern)
+
+	if err != nil {
+		log.Fatalf("Problem compiling regex pattern: %s", pattern)
+	}
+
+	return reg.ReplaceAllString(input, "")
+}
+	
 // ContainsSpecialChars checks for special characters.
 func ContainsSpecialChars(s string) bool {
 	isStringAlphabetic := regexp.MustCompile(`^[a-zA-Z0-9]*$`).MatchString
