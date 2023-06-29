@@ -8,7 +8,7 @@ var regexes = []string{"^(\\/[a-zA-Z0-9_-]+)+|\\/$"}
 
 // ValidatePath method validates paths and return true of false
 //
-// This function supports Linux-based and Windows operating systems
+// This function supports Linux-based operating systems
 // ________________________________________________________________________________________
 //
 //    Linux-based Examples:
@@ -17,11 +17,8 @@ var regexes = []string{"^(\\/[a-zA-Z0-9_-]+)+|\\/$"}
 //			- /dir1/
 //			- /dir1/dir2
 //
-//	  Windows Examples:
-//			- C://
-//
 
-func ValidatePath(path string) bool {
+func ValidateDirectoryPath(path string) bool {
 	for _, regex := range regexes {
 		reg := regexp.MustCompile(regex)
 		match := reg.MatchString(path)
